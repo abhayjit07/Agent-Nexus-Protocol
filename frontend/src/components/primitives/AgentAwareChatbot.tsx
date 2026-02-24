@@ -47,7 +47,7 @@ export const MessageComponent = memo(
     return (
       <Message
         className={cn(
-          "mx-auto flex w-full max-w-3xl flex-col gap-2 px-2 md:px-10",
+          "mx-auto flex w-full max-w-3xl flex-col gap-2 px-0 sm:px-2 md:px-10",
           isAssistant ? "items-start" : "items-end"
         )}
       >
@@ -71,7 +71,7 @@ export const MessageComponent = memo(
               )}
             </div>
             <MessageContent
-              className="text-foreground prose w-full min-w-0 flex-1 rounded-lg bg-transparent p-0"
+              className="text-foreground prose max-w-[85%] sm:max-w-[75%] rounded-lg bg-transparent p-0"
               markdown
             >
               {message.parts
@@ -93,7 +93,7 @@ export const MessageComponent = memo(
             )}
           </div>
         ) : (
-          <div className="flex w-full max-w-lg flex-col gap-2">
+          <div className="flex w-full max-w-lg flex-col gap-2 items-end">
             <MessageContent className="bg-muted text-primary max-w-[85%] rounded-3xl px-5 py-2.5 whitespace-pre-wrap sm:max-w-[75%]">
               {message.parts
                 .map((part) => (part.type === "text" ? part.text : null))
